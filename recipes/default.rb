@@ -4,16 +4,16 @@ git "#{node[:ruby_build][:install_path]}" do
   action           node[:ruby_build][:action]
   repository       node[:ruby_build][:repo_uri]
   revision         node[:ruby_build][:revision]
-  depth            node[:ruby_build][:depth]            if node[:ruby_build][:depth]
-  destination      node[:ruby_build][:destination]      if node[:ruby_build][:destination]
-  enable_checkout  node[:ruby_build][:enable_checkout]  if node[:ruby_build][:enable_checkout]
-  enable_submodule node[:ruby_build][:enable_submodule] if node[:ruby_build][:enable_submodule]
-  user             node[:ruby_build][:user]             if node[:ruby_build][:user]
-  group            node[:ruby_build][:group]            if node[:ruby_build][:group]
-  provider         node[:ruby_build][:provider]         if node[:ruby_build][:provider]
-  remote           node[:ruby_build][:remote]           if node[:ruby_build][:remote]
-  ssh_wrapper      node[:ruby_build][:ssh_wrapper]      if node[:ruby_build][:ssh_wrapper]
-  timeout          node[:ruby_build][:timeout]          if node[:ruby_build][:timeout]
+  depth            node[:ruby_build][:depth]            unless node[:ruby_build][:depth].nil?
+  destination      node[:ruby_build][:destination]      unless node[:ruby_build][:destination].nil?
+  enable_checkout  node[:ruby_build][:enable_checkout]  unless node[:ruby_build][:enable_checkout].nil?
+  enable_submodule node[:ruby_build][:enable_submodule] unless node[:ruby_build][:enable_submodule].nil?
+  user             node[:ruby_build][:user]             unless node[:ruby_build][:user].nil?
+  group            node[:ruby_build][:group]            unless node[:ruby_build][:group].nil?
+  provider         node[:ruby_build][:provider]         unless node[:ruby_build][:provider].nil?
+  remote           node[:ruby_build][:remote]           unless node[:ruby_build][:remote].nil?
+  ssh_wrapper      node[:ruby_build][:ssh_wrapper]      unless node[:ruby_build][:ssh_wrapper].nil?
+  timeout          node[:ruby_build][:timeout]          unless node[:ruby_build][:timeout].nil?
 end
 
 install_ruby_build_env = {}
