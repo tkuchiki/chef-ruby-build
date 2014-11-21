@@ -1,6 +1,6 @@
 package "git"
 
-git "#{node[:ruby_build][:install_path]}" do
+git node[:ruby_build][:install_path] do
   action           node[:ruby_build][:action]
   repository       node[:ruby_build][:repo_uri]
   revision         node[:ruby_build][:revision]
@@ -42,7 +42,7 @@ end
 
 install_ruby_path = "#{node[:ruby_build][:versions_path]}/#{node[:ruby_build][:ruby_version]}"
 
-bash "install ruby" do
+bash "install ruby #{node[:ruby_build][:ruby_version]}" do
   environment make_ruby_env
   creates     "#{install_ruby_path}"
   
