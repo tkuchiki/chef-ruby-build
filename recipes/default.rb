@@ -24,6 +24,13 @@ end
 
 ruby_build_bin = "#{node[:ruby_build_env][:default]['PREFIX']}/bin/ruby-build"
 
+directory node[:ruby_build][:versions_path] do
+  owner     "root"
+  group     "root"
+  mode      0755
+  recursive true
+end
+
 bash "install ruby-build" do
   cwd         node[:ruby_build][:install_path]
   environment install_ruby_build_env
